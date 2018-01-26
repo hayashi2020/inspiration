@@ -1,0 +1,8 @@
+How to create a cross compile toolchain by buildroot
+
+1. get buildroot package from http://buildroot.uclibc.org/downloads/snapshots/
+2. make menuconfig
+3. turn off all packages
+4. select target CPU, kernel header, and version of gcc
+5. mkdir ../dl and ln -s ../dl
+6. make
