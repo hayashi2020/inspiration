@@ -1,0 +1,23 @@
+#with statement
+with open('test.txt') as f:
+    print(f.closed)
+ 
+print(f.closed)
+
+
+#lambda function
+foo = lambda a, b: a + b
+print(foo(1, 2))
+
+#ini configuration
+import configparser 
+f = configparser.ConfigParser()
+f.read('config.ini', 'UTF-8')
+f.get('section', 'key'))
+
+#comprehension
+test_list = [i for i in range(5)]
+
+#Package
+#hashlib
+#uuid
