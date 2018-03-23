@@ -21,3 +21,24 @@ test_list = [i for i in range(5)]
 #Package
 #hashlib
 #uuid
+
+#Request URL and parse
+import urllib2, base64
+from HTMLParser import HTMLParser
+
+class TagParser(HTMLParser):
+    
+    def handle_starttag(self, tagname, attribute):
+        if tagname.lower() == 'a':
+            for i in attribute:
+                if i[0].lower() == 'href':
+                    print i[1]
+
+request = urllib2.Request('https://www.google.com')
+base64string = base64.b64encode('%s:%s' %('admin', 'admin'))
+request.add_header("Authorization", "Basic %s" % base64string)
+htmldata = urllib2.urlopen(request)
+parser = TagParser()
+parser.feed(htmldata.read())
+parser.close()
+htmldata.close()
